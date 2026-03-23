@@ -18,7 +18,7 @@ export class AuthService {
       process.env.JWT_SECRET ||
       'your-super-secret-jwt-key-at-least-32-characters-long-for-hs256';
     this.algorithm =
-      ((process.env.JWT_ALGORITHM as unknown) as JWTAlgorithm) || 'HS256';
+      (process.env.JWT_ALGORITHM as unknown as JWTAlgorithm) || 'HS256';
     this.expiresIn = parseInt(process.env.JWT_EXPIRATION || '3600', 10);
   }
 
