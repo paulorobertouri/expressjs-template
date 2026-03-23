@@ -1,5 +1,5 @@
-import { AuthService, CustomerService } from "../services/index.js";
-import { InMemoryCustomerRepository } from "../repositories/customer_repo.js";
+import { AuthService, CustomerService } from '../services/index.js';
+import { InMemoryCustomerRepository } from '../repositories/customer_repo.js';
 
 export interface Providers {
   authService: AuthService;

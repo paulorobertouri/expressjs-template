@@ -1,22 +1,22 @@
 .PHONY: install install-dev dev build test format docker-build docker-test docker-curl-test clean help
 
 install:
-	./scripts/ubuntu/install.sh
+	bash ./scripts/ubuntu/install.sh
 
 install-dev:
-	./scripts/ubuntu/install-dev.sh
+	bash ./scripts/ubuntu/install-dev.sh
 
 dev:
-	./scripts/ubuntu/dev.sh
+	bash ./scripts/ubuntu/dev.sh
 
 build:
-	./scripts/ubuntu/build.sh
+	bash ./scripts/ubuntu/build.sh
 
 test:
-	./scripts/ubuntu/test.sh
+	bash ./scripts/ubuntu/test.sh
 
 format:
-	./scripts/ubuntu/format.sh
+	bash ./scripts/ubuntu/format.sh
 
 docker-build:
 	docker build -f docker/build.Dockerfile -t expressjs-template:latest .
@@ -26,7 +26,7 @@ docker-test:
 	docker run --rm expressjs-template-test:latest
 
 docker-curl-test:
-	./scripts/ubuntu/docker-curl-test.sh
+	bash ./scripts/ubuntu/docker-curl-test.sh
 
 clean:
 	rm -rf dist node_modules coverage

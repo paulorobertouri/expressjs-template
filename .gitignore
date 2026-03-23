@@ -8,8 +8,18 @@ lerna-debug.log*
 .pnpm-debug.log*
 
 # Dependencies
-node_modules
-dist
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+pnpm-lock.yaml
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+out/
+.next/
 
 # IDE
 .idea
@@ -29,7 +39,3 @@ Thumbs.db
 # Test coverage
 coverage
 .nyc_output
-
-# Build
-build/
-*.tsbuildinfo

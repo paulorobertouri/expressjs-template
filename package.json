@@ -4,10 +4,12 @@
   "description": "Modern Express.js API template with JWT authentication and TypeScript",
   "type": "module",
   "main": "dist/main.js",
+  "packageManager": "pnpm@10.5.2",
   "scripts": {
     "build": "tsc",
     "start": "node dist/main.js",
     "dev": "tsx watch src/main.ts",
+    "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",
@@ -15,7 +17,9 @@
     "docker:test": "docker build -f docker/test.Dockerfile -t expressjs-template-test:latest . && docker run --rm expressjs-template-test:latest",
     "docker:curl-test": "bash tests/docker/test_with_curl.sh",
     "lint": "eslint src --ext .ts",
-    "format": "prettier --write \"src/**/*.ts\"",
+    "lint:fix": "eslint --fix src --ext .ts",
+    "format": "prettier -w --ignore-path .gitignore \"**/*.{ts,json,md}\"",
+    "format:check": "prettier -c --ignore-path .gitignore \"**/*.{ts,json,md}\"",
     "clean": "rm -rf dist coverage"
   },
   "dependencies": {
@@ -36,13 +40,28 @@
     "@types/uuid": "^9.0.7",
     "typescript": "^5.3.3",
     "tsx": "^4.7.0",
-    "vitest": "^1.1.0",
+    "vitest": "^3.1.3",
     "supertest": "^6.3.3",
     "@types/supertest": "^6.0.2",
     "eslint": "^8.56.0",
     "@typescript-eslint/eslint-plugin": "^6.17.0",
     "@typescript-eslint/parser": "^6.17.0",
     "prettier": "^3.1.1"
+  },
+  "eslintConfig": {
+    "ignorePatterns": [
+      "build/",
+      "node_modules/",
+      "dist/"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {}
   },
   "pnpm": {
     "overrides": {

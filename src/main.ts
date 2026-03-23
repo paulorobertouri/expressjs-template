@@ -1,9 +1,9 @@
-import "dotenv/config.js";
-import express, { Express, Request, Response } from "express";
-import cors from "cors";
-import helmet from "helmet";
-import { registerRoutes } from "./api/routes.js";
-import { createProviders } from "./di/providers.js";
+import 'dotenv/config.js';
+import express, { Express, Request, Response } from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import { registerRoutes } from './api/routes.js';
+import { createProviders } from './di/providers.js';
 
 const app: Express = express();
 const port = process.env.PORT || 8000;
@@ -15,8 +15,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Health check
-app.get("/health", (req: Request, res: Response) => {
-  res.json({ status: "ok" });
+app.get('/health', (req: Request, res: Response) => {
+  res.json({ status: 'ok' });
 });
 
 // Initialize DI providers

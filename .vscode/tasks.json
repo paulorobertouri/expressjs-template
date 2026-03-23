@@ -4,7 +4,7 @@
     {
       "label": "app:run",
       "type": "shell",
-      "command": "npm run dev",
+      "command": "pnpm dev",
       "isBackground": true,
       "problemMatcher": {
         "owner": "custom",
@@ -19,12 +19,12 @@
     {
       "label": "test:run",
       "type": "shell",
-      "command": "npm run test"
+      "command": "pnpm test"
     },
     {
       "label": "test:watch",
       "type": "shell",
-      "command": "npm run test:watch",
+      "command": "pnpm test:watch",
       "isBackground": true,
       "problemMatcher": {
         "owner": "custom",

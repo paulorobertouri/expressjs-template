@@ -25,7 +25,8 @@ describe('AuthService', () => {
   it('should reject a token signed with a different secret', () => {
     const token = authService.issueToken('test-user');
     const authServiceWithDifferentSecret = new AuthService();
-    process.env.JWT_SECRET = 'different-secret-key-at-least-32-characters-long-for-hs256';
+    process.env.JWT_SECRET =
+      'different-secret-key-at-least-32-characters-long-for-hs256';
     const differentService = new AuthService();
     const claims = differentService.validateToken(token);
     expect(claims).toBeNull();

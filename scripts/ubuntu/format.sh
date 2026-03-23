@@ -9,4 +9,4 @@ PROJECT_ROOT="$(dirname "$(dirname "$SCRIPT_DIR")")"
 cd "$PROJECT_ROOT"
 
 echo "Formatting code..."
-npm run format
+pnpm format

@@ -16,7 +16,7 @@ describe('Express API', () => {
   });
 
   it('should login and return JWT token', async () => {
-    const response = await request(app).post('/v1/auth/login');
+    const response = await request(app).get('/v1/auth/login');
     expect(response.status).toBe(200);
     expect(response.body.token).toBeTruthy();
     expect(response.headers['x-jwt-token']).toBeTruthy();
@@ -28,7 +28,7 @@ describe('Express API', () => {
   });
 
   it('should allow access to private endpoint with valid token', async () => {
-    const loginResponse = await request(app).post('/v1/auth/login');
+    const loginResponse = await request(app).get('/v1/auth/login');
     const token = loginResponse.body.token;
 
     const response = await request(app)

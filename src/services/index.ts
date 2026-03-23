@@ -1,17 +1,17 @@
-import jwt from "jsonwebtoken";
-import { TokenClaims } from "../domain/models.js";
+import jwt from 'jsonwebtoken';
+import { TokenClaims } from '../domain/models.js';
 
 export class AuthService {
   private secret: string;
-  private algorithm: "HS256" | "HS384" | "HS512" = "HS256";
+  private algorithm: 'HS256' | 'HS384' | 'HS512' = 'HS256';
   private expiresIn: number;
 
   constructor() {
     this.secret =
       process.env.JWT_SECRET ||
-      "your-super-secret-jwt-key-at-least-32-characters-long-for-hs256";
-    this.algorithm = (process.env.JWT_ALGORITHM as any) || "HS256";
-    this.expiresIn = parseInt(process.env.JWT_EXPIRATION || "3600", 10);
+      'your-super-secret-jwt-key-at-least-32-characters-long-for-hs256';
+    this.algorithm = (process.env.JWT_ALGORITHM as any) || 'HS256';
+    this.expiresIn = parseInt(process.env.JWT_EXPIRATION || '3600', 10);
   }
 
   issueToken(subject: string): string {
