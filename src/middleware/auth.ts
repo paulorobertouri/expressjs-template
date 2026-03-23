@@ -23,7 +23,8 @@ export const createJWTMiddleware = (authService: AuthService) => {
       return res.status(401).json({ error: 'invalid or expired token' });
     }
 
-    (req as any).user = claims.sub;
+    const typedReq = req as Request & { user?: string };
+    typedReq.user = claims.sub;
     next();
   };
 };

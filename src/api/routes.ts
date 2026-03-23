@@ -94,8 +94,12 @@ export const registerRoutes = (app: Express, providers: Providers) => {
 
   // Protected routes
   const jwtMiddleware = createJWTMiddleware(providers.authService);
-  app.get('/v1/private', jwtMiddleware, (req: Request, res: Response) => {
-    const user = (req as any).user;
-    return res.json({ message: 'This is a private endpoint', user });
-  });
+  app.get(
+    '/v1/private',
+    jwtMiddleware,
+    (req: Request & { user?: Record<string, unknown> }, res: Response) => {
+      const user = req.user;
+      return res.json({ message: 'This is a private endpoint', user });
+    }
+  );
 };
