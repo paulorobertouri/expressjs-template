@@ -17,6 +17,10 @@ jobs:
         uses: github/codeql-action/init@v3
         with:
           languages: javascript
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+      - name: Install dependencies
+        run: pnpm install
       - name: Autobuild
         uses: github/codeql-action/autobuild@v3
       - name: Perform CodeQL Analysis
