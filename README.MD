@@ -22,6 +22,7 @@ Express API template with TypeScript, JWT authentication, Swagger docs, and auto
 ## JWT Contract
 
 Login returns:
+
 - Body: `{"token":"..."}`
 - Header: `Authorization: Bearer <token>`
 - Header: `X-JWT-Token: <token>`

@@ -4,7 +4,7 @@ WORKDIR /app
 RUN npm install -g pnpm
 
 COPY package.json ./
-RUN pnpm install
+RUN pnpm install --no-frozen-lockfile
 
 COPY . .
 CMD ["pnpm", "test"]

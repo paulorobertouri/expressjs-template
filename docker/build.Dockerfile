@@ -4,7 +4,7 @@ WORKDIR /app
 RUN npm install -g pnpm
 
 COPY package.json ./
-RUN pnpm install
+RUN pnpm install --no-frozen-lockfile
 
 COPY . .
 RUN pnpm build
@@ -15,7 +15,7 @@ WORKDIR /app
 RUN npm install -g pnpm
 
 COPY package.json ./
-RUN pnpm install --prod
+RUN pnpm install --prod --no-frozen-lockfile
 
 COPY .env .
 COPY --from=builder /app/dist ./dist

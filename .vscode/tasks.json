@@ -22,6 +22,36 @@
       "command": "pnpm test"
     },
     {
+      "label": "build",
+      "type": "shell",
+      "command": "pnpm build"
+    },
+    {
+      "label": "lint",
+      "type": "shell",
+      "command": "pnpm lint"
+    },
+    {
+      "label": "format:check",
+      "type": "shell",
+      "command": "pnpm format:check"
+    },
+    {
+      "label": "docker:up",
+      "type": "shell",
+      "command": "docker compose up --build"
+    },
+    {
+      "label": "docker:down",
+      "type": "shell",
+      "command": "docker compose down"
+    },
+    {
+      "label": "docker:curl-test",
+      "type": "shell",
+      "command": "pnpm docker:curl-test"
+    },
+    {
       "label": "test:watch",
       "type": "shell",
       "command": "pnpm test:watch",

@@ -21,6 +21,15 @@
       "console": "integratedTerminal",
       "cwd": "${workspaceFolder}",
       "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Express: Docker Docs",
+      "type": "pwa-chrome",
+      "request": "launch",
+      "preLaunchTask": "docker:up",
+      "postDebugTask": "docker:down",
+      "url": "http://localhost:8000/docs",
+      "webRoot": "${workspaceFolder}"
     }
   ]
 }
