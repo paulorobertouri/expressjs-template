@@ -1,6 +1,6 @@
 # expressjs-template
 
-Express API template with TypeScript, JWT authentication, Swagger docs, and automated tests.
+Production-ready Express API template with TypeScript, JWT authentication, Swagger docs, and automated tests.
 
 ## Stack
 

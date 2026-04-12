@@ -4,7 +4,7 @@ WORKDIR /app
 RUN npm install -g pnpm
 
 COPY package.json ./
-RUN pnpm install --no-frozen-lockfile
+RUN pnpm install --no-frozen-lockfile --ignore-scripts
 
 COPY . .
 RUN pnpm build
@@ -15,9 +15,8 @@ WORKDIR /app
 RUN npm install -g pnpm
 
 COPY package.json ./
-RUN pnpm install --prod --no-frozen-lockfile
+RUN pnpm install --prod --no-frozen-lockfile --ignore-scripts
 
-COPY .env .
 COPY --from=builder /app/dist ./dist
 
 ENV PORT=8000

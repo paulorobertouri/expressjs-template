@@ -10,8 +10,10 @@ container_id=$(docker run -d -p 29000:8000 expressjs-template:latest)
 trap "docker rm -f $container_id" EXIT
 
 sleep 2
+sleep 2
 
 # Test endpoints
+curl -fsS http://127.0.0.1:29000/docs > /dev/null
 curl -fsS http://127.0.0.1:29000/v1/public > /dev/null
 curl -fsS http://127.0.0.1:29000/v1/customer > /dev/null
 
